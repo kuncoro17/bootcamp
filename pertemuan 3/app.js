@@ -1,23 +1,79 @@
 const fs = require('fs');
 const readline = require('readline');
+const path = require('path');
+const validator = require('validator');
+
+const dataDir = path.join(__dirname, 'data');
+const dataFilePath = path.join(dataDir, 'tugas_susah_beutdah.json');
+
 const rl = readline.createInterface({
-input:process.stdin,
-output:process.stdout
-
+    input: process.stdin,
+    output: process.stdout
 });
 
+// Error Handling
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir);
+}
 
+const nama = () => {
+    rl.question('Masukkan nama: ', (name) => {
+        if (!validator.isLength(name )) {
+            
+            return nama();
+        }
+        NomorHandphone(name);
+    });
+}
+//jika berhasil menginputkan nama lanjut ke function Nomor Handphone
 
-rl.question('What is Your Name?', (name)=>{
-    rl.question('Your Mobile number?', (mobile)=>{
-        rl.question('Your emaik ?', (email)=>{
-        const contact = {name, mobile,email};
-        const file = fs.readFileSync('data/contact.json', 'utf-8');
-        const contacts  = JSON.parse(file);
-        contacts.push(contact);
-        fs.writeFileSync('data/contact.json', JSON.stringify(contacts));
-        console.log("terima kasih sudah isi ");
-        rl.close();
+const NomorHandphone = (name) => {
+    rl.question('Masukkan NoHP: ', (phone) => {
+        if (!validator.isMobilePhone(phone, 'id-ID')) {
+            console.log('masukkan nomor hp region indonesia');
+            return NomorHandphone(name);
+        }
+        emails(name, phone);
     });
+}
+//jika berhasil menginputkan nomor handphone lanjut ke function email
+
+const emails = (name, phone) => {
+    rl.question('Masukkan email: ', (email) => {
+        if (!validator.isEmail(email)) {
+            console.log('Email tidak valid');
+            return emails(name, phone);
+        }
+        Simpandata({ name, phone, email });
     });
-});
+}
+
+const Simpandata = (contact) => {
+    let contacts = [];
+    try {
+        if (fs.existsSync(dataFilePath)) {
+            const data = fs.readFileSync(dataFilePath, 'utf-8');
+            if (data) {
+                contacts = JSON.parse(data);
+            }
+        } else {
+            console.log('Tidak ada file');
+        }
+    } catch (err) {
+        console.error( err);
+    }
+
+    contacts.push(contact);
+    const data = JSON.stringify(contacts, null, 2);
+
+    try {
+        fs.writeFileSync(dataFilePath, data);
+        console.log('Contact saved successfully.');
+    } catch (err) {
+        console.error(err);
+    }
+
+    rl.close();
+}
+
+nama();
