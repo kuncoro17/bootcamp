@@ -2,8 +2,6 @@
 const yargs = require('yargs');
 const { saveContact } = require('./Fungsi');
 
-
-
 yargs.command({
     command: 'add',
     describe: 'add new contact',
