@@ -71,8 +71,68 @@ const saveContact = (contact) => {
         console.error('Error writing to the file:', err);
     }
 };
+const selectContact = () => {
+    const contacts = readJsonFile(dataFilePath);
 
+    if (contacts.length === 0) {
+        console.log('No contacts found.');
+        return;
+    }
+
+    console.log('Contacts:');
+    contacts.forEach((contact, index) => {
+        console.log(`${index + 1}. Name: ${contact.name}, Mobile: ${contact.mobile}`);
+    });
+};
+const updateContact = (name, updatedInfo) => {
+    let contacts = readJsonFile(dataFilePath);
+    const index = contacts.findIndex(contact => contact.name === name);
+
+    if (index === -1) {
+        console.log(`Contact with name "${name}" not found.`);
+        return;
+    }
+
+    // Update the contact with the provided information
+    Object.assign(contacts[index], updatedInfo);
+
+    // Write the updated contacts back to the file
+    const data = JSON.stringify(contacts, null, 2);
+    fs.writeFileSync(dataFilePath, data);
+    console.log(`Contact "${name}" updated successfully.`);
+};
+const getContactDetails = (name) => {
+    let contacts = readJsonFile(dataFilePath);
+    const contact = contacts.find(contact => contact.name === name);
+
+    if (!contact) {
+        console.log(`Contact with name "${name}" not found.`);
+        return;
+    }
+
+    console.log('Contact Details:');
+    console.log(`Name: ${contact.name}`);
+    console.log(`Email: ${contact.email || 'N/A'}`);
+    console.log(`Mobile: ${contact.mobile}`);
+};
+const deleteContact = (name) => {
+    let contacts = readJsonFile(dataFilePath);
+    const index = contacts.findIndex(contact => contact.name === name);
+
+    if (index === -1) {
+        console.log(`Contact with name "${name}" not found.`);
+        return;
+    }
+
+    // Remove the contact from the array
+    contacts.splice(index, 1);
+
+    // Write the updated contacts back to the file
+    const data = JSON.stringify(contacts, null, 2);
+    fs.writeFileSync(dataFilePath, data);
+    console.log(`Contact "${name}" deleted successfully.`);
+};
 // Module exports
 module.exports = {
-    saveContact
+    saveContact,selectContact,updateContact,getContactDetails,deleteContact
 };
