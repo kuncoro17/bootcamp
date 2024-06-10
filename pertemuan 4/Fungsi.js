@@ -11,7 +11,7 @@ if (!fs.existsSync(dataDir)) {
 }
 
 const nameExists = (data, name) => {
-    const lowerCaseName = name.toLowerCase();
+//    const lowerCaseName = name.toLowerCase();
     return data.some(item => item.name.toLowerCase() === lowerCaseName);
 };
 
