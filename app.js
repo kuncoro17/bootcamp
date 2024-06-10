@@ -22,6 +22,7 @@ const renderHTML = (filePath, res) => {
 };
 
 
+
 // Middleware untuk melayani file statis dari folder 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
