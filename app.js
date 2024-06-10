@@ -20,7 +20,10 @@ const renderHTML = (filePath, res) => {
     }
   });
 };
-//asdadas
+
+
+
+
 // Middleware untuk melayani file statis dari folder 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -39,6 +42,7 @@ app.use((req, res) => {
     res.end();
   }
 });
+
 
 // Buat server HTTP dan gabungkan dengan Express
 const server = http.createServer(app);
