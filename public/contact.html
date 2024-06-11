@@ -1,11 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Steampunk Adventures</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+/* Reset some default styles */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: #2f2f2f;
+    color: #f3f3f3;
+}
+
+/* Container for centering content */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header styles */
+header {
+    background: #333;
+    color: #f3f3f3;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #ff9800 3px solid;
+}
+
+header h1 {
+    float: left;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header ul li {
+    display: inline;
+    margin-left: 10px;
+}
+
+header a {
+    color: #f3f3f3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ff9800;
+}
+
+/* Hero Section */
+.hero {
+    background: url('steampunk-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    background: #ff9800;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.hero .btn:hover {
+    background: #e68900;
+}
+
+/* Content Section */
+.content {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    background: #444;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 20px 0;
+    border-top: #ff9800 3px solid;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header, .container, .hero, .content, .footer {
+        width: 90%;
+        margin: auto;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+</style>
 <body>
-  <h1>Contact Us</h1>
+    <header>
+        <div class="container">
+            <h1>Steampunk Adventures</h1>
+            <nav>
+                <ul>
+                    <li><a href="steam.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or would like to learn more about our services, feel free to reach out to us. We are here to help you explore the world of steampunk.</p>
+                
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Steampunk Adventures. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
