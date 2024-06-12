@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= data.title %></title>
+    <link rel="stylesheet" href="/css/tailwind.css" />
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: #2f2f2f;
+            color: #f3f3f3;
+        }
+
+        .bg-steampunk {
+            background: linear-gradient(to right, #2f2f2f, #444);
+        }
+
+        .text-steampunk {
+            color: #ff9800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-steampunk {
+            background: #444;
+            color: #f3f3f3;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('component/header') %>
+    <div class="bg-steampunk h-full min-h-[93vh] flex justify-center items-center">
+        <div>
+            <p class="text-5xl text-steampunk lowercase font-bold mb-10">
+                <%= data.message %>
+            </p>
+            <div class="card-steampunk p-10">
+                <p class="text-2xl mb-4"><%= data.contact.name %></p>
+                <p class="mb-2"><%= data.contact.email %></p>
+                <p><%= data.contact.phone %></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
