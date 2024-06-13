@@ -1,14 +1,19 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const expressLayouts = require('express-ejs-layouts')
 
 const app = express();
 const port = 3000;
 
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Middleware untuk load data
 const loadContactsData = (req, res, next) => {
@@ -25,16 +30,16 @@ const loadContactsData = (req, res, next) => {
 // Route handlers
 app.get('/', (req, res) => {
     const data = {
-        title: 'Home',
-        message: 'Home',
+        title: 'Index',
+        message: 'Ini Index',
     };
-    res.render('index', { data });
+    res.render('index', { data  });
 });
 
 app.get('/about', (req, res) => {
     const data = {
         title: 'About',
-        message: 'Halaman About',
+        message: 'Ini About',
     };
     res.render('about', { data });
 });
@@ -42,7 +47,7 @@ app.get('/about', (req, res) => {
 app.get('/contact', loadContactsData, (req, res) => {
     const data = {
         title: 'Contact',
-        message: 'Halaman Contact',
+        message: 'Ini Contact',
         contact: res.locals.contacts,
     };
     res.render('contact', { data });
@@ -55,7 +60,7 @@ app.get('/contact/:id', loadContactsData, (req, res) => {
     if (!contact) {
         const data = {
             title: '404',
-            message: 'ngga bisa woyyy ngapain disini balik sana',
+            message: 'ERROR BANG',
         };
         return res.status(404).render('404', { data });
     }

@@ -1,86 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<div>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= data.title %></title>
-    <link rel="stylesheet" href="/css/tailwind.css" />
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background: #2f2f2f;
-            color: #f3f3f3;
-        }
+    <p class="text-3xl  text-white lowercase font-bold mb-10">
+        <%= data.message %>
+    </p>
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .bg-steampunk {
-            background: linear-gradient(to right, #2f2f2f, #444);
-        }
-
-        .text-steampunk {
-            color: #ff9800;
-        }
-
-        .btn-steampunk {
-            background: #ff9800;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .btn-steampunk:hover {
-            background: #e68900;
-        }
-
-        .card-steampunk {
-            background: #444;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        .shadow-steampunk {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-</head>
-
-<body>
-    <%- include('component/header') %>
-    <div class="bg-steampunk h-full min-h-[93vh] flex justify-center items-center px-20 pt-10">
-        <div class="container text-center">
-            <p class="text-3xl text-steampunk font-bold mb-10">
-                <%= data.message %>
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <% data.contact.forEach(contact => { %>
-                    <div class="card-steampunk shadow-steampunk">
-                        <h2 class="text-xl mb-2 text-steampunk font-medium">
-                            <%= contact.name %>
-                        </h2>
-                        <p class="mb-1">
-                            <%= contact.email %>
-                        </p>
-                        <p class="mb-4">
-                            <%= contact.phone %>
-                        </p>
-                        <a href="/contact/<%= contact.id %>" class="btn-steampunk">
-                            View Details
-                        </a>
-                    </div>
-                <% }) %>
+    <div class="grid grid-cols-5 gap-4">
+        <% data.contact.forEach(contact=> { %>
+            <div class="bg-white rounded-lg shadow-md p-4 ">
+                <h2 class="text-xl  mb-2 font-medium">
+                    <%= contact.name %>
+                </h2>
+                <p class="mb-1">
+                    <%= contact.email %>
+                </p>
+                <p class="mb-4">
+                    <%= contact.phone %>
+                </p>
+                <a href="/contact/<%= contact.id %>" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4
+                                rounded">
+                    View Details
+                </a>
             </div>
-        </div>
+            <% }) %>
     </div>
-</body>
-
-</html>
+</div>
