@@ -2,16 +2,19 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const expressLayouts = require('express-ejs-layouts')
+const morgan = require("morgan")
 
 const app = express();
 const port = 3000;
-
+app.use(morgan);
+//buat manggil header,footer,dan nav
 app.use(expressLayouts);
 app.set('layout', 'layouts/main');
-
+//jenis engine
 app.set('view engine', 'ejs');
+//memanggil view dengan folder views 
 app.set('views', path.join(__dirname, 'views'));
-
+//membuat tampilan menjadi static
 app.use(express.static(path.join(__dirname, 'public')));
 
 
