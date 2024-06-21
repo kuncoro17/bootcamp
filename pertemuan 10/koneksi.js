@@ -19,7 +19,7 @@ const pool = new Pool({
 });
 
 const app = express();
-const port = 8080;
+const port = 3001;
 
 // Middleware setup
 app.use(expressLayouts);
