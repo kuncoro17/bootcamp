@@ -1,0 +1,80 @@
+/* Reset default browser styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Code styling */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Header styling */
+header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+/* Header title (h1) styling */
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+h1 {
+  color: white;
+  font-size: 1.5rem; /* Adjust font size as needed */
+  margin: 0; /* Remove default margin */
+}
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-item {
+  padding: 10px 15px;
+}
+
+.navbar-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-item a:hover {
+  background-color: #555;
+}
+
+/* Content area styling */
+.content {
+  padding: 20px;
+}
+
+/* Individual content section styling */
+.content section {
+  margin-bottom: 20px;
+}
+
+/* Heading (h2) within content section styling */
+.content h2 {
+  margin-top: 0;
+}
