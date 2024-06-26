@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import Content from './Content'; 
+import Time from './Time'; 
 import Navbar from './Navbar'; 
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
@@ -26,10 +27,12 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <Navbar /> {/* Render the Navbar component */}
+    <Time />
     <Content /> {/* Render the Content component */}
-    
+  
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
