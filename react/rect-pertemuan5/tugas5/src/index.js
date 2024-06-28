@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Search from './search'; 
+// import Search from './search'; 
 import Time from './Time'; 
+import Search from './components/search';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -12,7 +13,7 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <Time/>
-    <Search/>
+    <Search />
 
 
   </React.StrictMode>
