@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ACCESS_TOKEN = 'W_sKDGPXUxHmsPCdX4QSwxfzPSDCbzhrMIk1hsmfKgI'; // Replace with your actual API key
+const ACCESS_TOKEN = 'AIzaSyApU4ZlTvQnyIMJCmvf_mfc8eA0EKMz98Q'; // Replace with your actual API key
 
 export const performSearch = async (query) => {
   if (query.trim() === '') {
@@ -8,17 +8,19 @@ export const performSearch = async (query) => {
   }
 
   try {
-    const response = await axios.get(`https://api.unsplash.com/search/photos`, {
+    const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
-        client_id: ACCESS_TOKEN,
-        query: query,
+        key: ACCESS_TOKEN,
+        q: query,
+        part: 'snippet',
+        type: 'video'
       }
     });
-    return { results: response.data.results };
+    return { results: response.data.items };
   } catch (error) {
     console.error('Error fetching data:', error);
     if (error.response) {
-      return { error: `Error: ${error.response.status} - ${error.response.data.message}` };
+      return { error: `Error: ${error.response.status} - ${error.response.data.error.message}` };
     } else if (error.request) {
       return { error: 'Error: No response received from server' };
     } else {
