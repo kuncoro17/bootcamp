@@ -1,0 +1,15 @@
+{
+  "name": "rect-pertemuan7",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "final-form": "^4.20.10",
+    "react-final-form": "^6.5.9"
+  }
+}
