@@ -1,0 +1,22 @@
+POST http://localhost:5432/api/users 
+Content-Type: application/json
+
+{
+    "name":"kunc",
+    "email": "asda@gmail.com",
+    "gender": "male"
+}
+###
+PATCH  http://localhost:5432/api/users/5
+Content-Type: application/json
+
+{
+    "name":"kunc",
+    "email": "asda@gmail.com",
+    "gender": "male"
+}
+
+###
+DELETE   http://localhost:5432/api/users/5
+
+

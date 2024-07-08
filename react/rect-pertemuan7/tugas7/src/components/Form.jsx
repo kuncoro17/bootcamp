@@ -55,9 +55,15 @@ const FormComponent = () => (
             <label>Education:</label>
             <Field name="education" component="select" className="select-field">
               <option value="">Select...</option>
+              <option value="TK">TK</option>
+              <option value="SD">SD</option>
+              <option value="SMP">SMP</option>
+              <option value="SMA">SMA</option>
               <option value="bachelor">Bachelor</option>
               <option value="master">Master</option>
               <option value="phd">PhD</option>
+              <option value="Dr">Dr</option>
+              <option value="Professor">Professor</option>
             </Field>
           </div>
           
@@ -70,45 +76,45 @@ const FormComponent = () => (
                 name="experience"
                 component="input"
                 type="checkbox"
-                value="1"
+                value="HTML"
               />
-              Experience 1
+              HTML
             </label>
             <label>
               <Field
                 name="experience"
                 component="input"
                 type="checkbox"
-                value="2"
+                value="PHP"
               />
-              Experience 2
+              PHP
             </label>
             <label>
               <Field
                 name="experience"
                 component="input"
                 type="checkbox"
-                value="3"
+                value=" Node JS"
               />
-              Experience 3
+             Node JS
             </label>
             <label>
               <Field
                 name="experience"
                 component="input"
                 type="checkbox"
-                value="4"
+                value=" React JS"
               />
-              Experience 4
+              React JS
             </label>
             <label>
               <Field
                 name="experience"
                 component="input"
                 type="checkbox"
-                value="5"
+                value="Hunter X Hunter"
               />
-              Experience 5
+              Bahasa Hunter X Hunter
             </label>
               
               {/* Add other experience checkboxes similarly */}
@@ -121,9 +127,9 @@ const FormComponent = () => (
                 name="preferred"
                 component="input"
                 type="radio"
-                value="option1"
+                value="Frontend"
               />
-              Option 1
+              Frontend
             </label>
           </div>
           <div className="form-field">
@@ -133,18 +139,18 @@ const FormComponent = () => (
                 name="technology"
                 component="input"
                 type="radio"
-                value="tech1"
+                value="Back End"
               />
-              Tech 1
+              BackEnd
             </label>
             <label>
               <Field
                 name="technology"
                 component="input"
                 type="radio"
-                value="tech2"
+                value="Full Stack"
               />
-              Tech 2
+              Full Stack
             </label>
           </div>
           <div className="form-field">
